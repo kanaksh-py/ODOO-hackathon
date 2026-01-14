@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 
 const technicianSchema = new mongoose.Schema({
   name: {
@@ -12,12 +11,11 @@ const technicianSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
-    trim: true,
+    trim: true
   },
   password: { // just added
     type: String,
-    required: true,
-    minlength: 6
+    required: true
   },
 
   role:{
@@ -26,10 +24,6 @@ const technicianSchema = new mongoose.Schema({
     default: 'Employee'
   },
   
-  team:{
-    type: mongoose.Schema.Types.ObjectId,
-    ref:'Team'
-  },
   avatar: {
     type: String,
     default: function() {
